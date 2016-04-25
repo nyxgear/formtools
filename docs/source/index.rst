@@ -10,6 +10,14 @@ It was designed to be extensible and customizable to fit your needs.
 You can easily define your input validators in the HTML markup and validate the form via Javascript with just one line of code!
 
 
+How to use it
+=============
+Include the following tag before your Javascript
+
+.. :code:: html
+
+  <script src="https://cdn.rawgit.com/nyxgear/formtools.js/master/dist/formtools.min.js"></script>
+
 Table of content
 ================
 .. toctree::
