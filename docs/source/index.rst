@@ -14,9 +14,7 @@ How to use it
 =============
 Include the following tag before your Javascript
 
-.. :code:: html
-
-  <script src="https://cdn.rawgit.com/nyxgear/formtools.js/master/dist/formtools.min.js"></script>
+<script src="https://cdn.rawgit.com/nyxgear/formtools.js/master/dist/formtools.min.js"></script>
 
 Table of content
 ================
