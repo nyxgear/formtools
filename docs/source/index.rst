@@ -3,14 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to formtools.js's documentation!
-========================================
+Formtools.js documentation
+==========================
+Formtools.js is a lightweight and powerful JQuery plugin that lets you validate, reset, and fill your HTML forms.
+It was designed to be extensible and customizable to fit your needs.
+You can easily define your input validators in the HTML markup and validate the form via Javascript with just one line of code!
 
-Contents:
 
+Table of content
+================
 .. toctree::
    :maxdepth: 2
-
+   define-validators
+   how-to-validate
 
 Indices and tables
 ==================
