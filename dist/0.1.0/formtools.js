@@ -14,7 +14,7 @@
 		if (s.error.fields) {
 			$(s.error.fields).text('');
 		}
-		
+
 		if (s.verbose || data) {
 			form.find('input, select, textarea').each(function() {
 				var f =  $(this);

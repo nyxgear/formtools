@@ -57,18 +57,18 @@ gulp.task('build-js', function () {
 		.pipe(eslint())
 		.pipe(eslint.format())
 		.pipe(eslint.failOnError())
-		.pipe(gulp.dest('dist/'));
+		.pipe(gulp.dest('dist/latest/'));
 });
 
 gulp.task('dist-min', function () {
-	return gulp.src('dist/formtools.js')
+	return gulp.src('dist/latest/formtools.js')
 		.pipe(rename({
 			extname: '.min.js'
 		}))
 		.pipe(size({title: 'PRE-MINIFY'}))
 		.pipe(uglify({ mangle:true })) 
 		.pipe(size({title: 'POST-MINIFY'}))
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist/latest'));
 });
 
 

@@ -12,9 +12,12 @@ You can easily define your input validators in the HTML markup and validate the 
 
 How to use it
 =============
-Include the following tag before your Javascript
+Include the following tag before your custom Javascript
 
-<script src="https://cdn.rawgit.com/nyxgear/formtools.js/master/dist/formtools.min.js"></script>
+.. code-block:: html
+
+    <script src="https://cdn.rawgit.com/nyxgear/formtools.js/master/dist/0.1.0/formtools.min.js"></script>
+
 
 Table of content
 ================
