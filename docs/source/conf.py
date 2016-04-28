@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# formtools.js documentation build configuration file, created by
+# formtools documentation build configuration file, created by
 # sphinx-quickstart on Mon Apr 25 16:26:50 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -49,7 +49,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'formtools.js'
+project = u'formtools'
 copyright = u'2016, nyxgear'
 author = u'nyxgear'
 
@@ -124,7 +124,7 @@ html_theme = 'default'
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
-#html_title = u'formtools.js v0'
+#html_title = u'formtools v0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -206,7 +206,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'formtoolsjsdoc'
+htmlhelp_basename = 'formtoolsdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -228,7 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'formtoolsjs.tex', u'formtools.js Documentation',
+    (master_doc, 'formtools.tex', u'formtools Documentation',
      u'nyxgear', 'manual'),
 ]
 
@@ -258,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'formtoolsjs', u'formtools.js Documentation',
+    (master_doc, 'formtools', u'formtools Documentation',
      [author], 1)
 ]
 
