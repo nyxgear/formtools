@@ -71,7 +71,7 @@
 			// ft-minlength
 			if (s.v.ftMinLength && (f.val().length < s.v.ftMinLength)) {
 				isValid = false;
-                s.error.dMsg = _t('ft-min-length') + ' ' + s.v.ftMinLength;
+                s.error.dMsg = _t('ft-minlength') + ' ' + s.v.ftMinLength;
 			}
 
 			// regex
@@ -243,7 +243,7 @@
 			'preReset' : function (form, data) {},
 			'postReset' : function (form, data) {}
 		},
-		'verbose' : false,
+		'verbose' : true,
         'v' : {
             'ftDateFormat' : 'DD/MM/YYYY',
         },
@@ -257,7 +257,7 @@
         'translation' : {
             'en' : {
                 'ft-required' : 'Required field',
-                'ft-min-length' : 'Minimum characters required:',
+                'ft-minlength' : 'Minimum characters required:',
                 'ft-regex' : 'Error',
                 'ft-email-validation' : 'Invalid email address',
                 'ft-date-validation' : 'Wrong date. Required date format as:',
@@ -266,7 +266,7 @@
             },
             'it' : {
                 'ft-required' : 'Campo obbligatorio',
-                'ft-min-length' : 'Minimo caratteri richiesti: ',
+                'ft-minlength' : 'Minimo caratteri richiesti: ',
                 'ft-regex' : 'Errore nel campo',
                 'ft-email-validation' : 'Indirizzo email non valido',
                 'ft-date-validation' : 'Data non valida. Formato data: ',
@@ -304,7 +304,7 @@
             }
 		}
 
-        s.v.ftMinLength = f.data('ft-min-length');
+        s.v.ftMinLength = f.data('ft-minlength');
         s.v.ftDateFormat = f.data('ft-date-format');
         s.v.ftDateRange = f.data('ft-date-range');
         s.v.ftRegex = f.data('ft-regex');
