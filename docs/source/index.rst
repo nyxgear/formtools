@@ -22,7 +22,7 @@ How to include it
   
   .. code-block:: html
 
-      <script src="https://cdn.rawgit.com/nyxgear/formtools/master/dist/0.1.0/formtools.min.js"></script>
+      <script src="https://cdn.rawgit.com/nyxgear/formtools/master/dist/1.0/formtools.min.js"></script>
 
   or, if you want to get formtools part of your project, you can include its minified file directly.
 
