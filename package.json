@@ -1,11 +1,11 @@
 {
-  "name": "fromtools.js",
-  "version": "0.1.0",
-  "description": "Formtools.js a lightweight and powerful JQuery plugin that lets you validate, reset, and fill your HTML forms.",
+  "name": "fromtools",
+  "version": "1.0",
+  "description": "Formtools a lightweight and powerful JQuery plugin that lets you validate, reset, and fill your HTML forms.",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nyxgear/formtools.js"
+    "url": "https://github.com/nyxgear/formtools"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
