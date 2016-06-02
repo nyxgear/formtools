@@ -71,8 +71,8 @@ Custom places for errors
 
 | `Default value: nothing`
 |
-| If you want to gather erros in specific places, you can set up selectors that will be filled with errors.
-| If verbose mode is active, erros will be placed **also** under inputs.
+| If you want to gather errors in specific places, you can set up selectors that will be filled with errors.
+| If verbose mode is active, errors will be placed **also** under inputs.
 |
 
 .. code-block:: javascript

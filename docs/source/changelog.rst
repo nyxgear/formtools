@@ -4,7 +4,7 @@
 
 This file describe new formtools features and incompatibilites 
 
-Release 0.1.0
+Release 1.0
 =============
 
 	* Initial release
