@@ -25,7 +25,7 @@ You can put the following attributes on form inputs
 +---------------------------+------------------------------------------+
 | `Optional`_               | ``data-ft-optional``                     |
 +---------------------------+------------------------------------------+
-| `Minlength`_              | ``data-ft-minlength="5"``                |
+| `Minlength`_              | ``data-ft-min-length="5"``                |
 +---------------------------+------------------------------------------+
 | `Regex`_                  | ``data-ft-regex="([A-Z])\w+"``           |
 +---------------------------+------------------------------------------+
@@ -162,7 +162,7 @@ You can put the these attributes on form tags
 +---------------------------+------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `Optional`                | ``data-ft-optional``                     | All inputs in the form are optional. It follows `Optional`_ overwriting rules to overwrite :ref:`Javascript configured validators <javascript-configured-validators>`                                          |
 +---------------------------+------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `Minlength`               | ``data-ft-min-length="5"``                | All inputs in the form must have at least 5 characters. It follows `Minlength`_ overwriting rules to overwrite :ref:`Javascript configured validators <javascript-configured-validators>`                      |
+| `Minlength`               | ``data-ft-min-length="5"``                | All inputs in the form must have at least 5 characters. It follows `Minlength`_ overwriting rules to overwrite :ref:`Javascript configured validators <javascript-configured-validators>`                     |
 +---------------------------+------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `RegEx`                   | ``data-ft-regex="([A-Z])\w+"``           | All inputs in the form must match the regex. It follows `Regex`_ overwriting rules to overwrite :ref:`Javascript configured validators <javascript-configured-validators>`                                     |
 +---------------------------+------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
