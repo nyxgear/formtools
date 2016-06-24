@@ -54,9 +54,15 @@ gulp.task('watch', function () {
 gulp.task('build-js', function () {
 	return gulp.src('src/*.js')
 		.pipe(concat('formtools.js'))
+		.pipe(plumber({
+			errorHandler: function (error) {
+				console.log(error.plugin, error.message, '\n');
+				return this.emit('end');
+			}
+		}))
 		.pipe(eslint())
 		.pipe(eslint.format())
-		.pipe(eslint.failOnError())
+		.pipe(eslint.failAfterError())
 		.pipe(gulp.dest('dist/latest/'));
 });
 
