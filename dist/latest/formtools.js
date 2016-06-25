@@ -1,5 +1,5 @@
 /*!
- * Formtools v1.0 (http://nyxgear.github.io/formtools)
+ * Formtools v1.1.0 (http://github.io/nyxgear/formtools)
  * Copyright 2016 nyxgear
  * Licensed under the MIT license
  */
