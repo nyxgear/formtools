@@ -4,6 +4,14 @@
 
 This file describe new formtools features and incompatibilites 
 
+Release 1.1.0
+=============
+
+	* Version name extended
+	* ft-min-length validtor to ft-minlenght
+	* Verbose mode for errors is now the default mode
+
+
 Release 1.0
 =============
 

@@ -10,7 +10,7 @@ Formtools
 ==================
 What is Formtools?
 ==================
-  Formtools is a lightweight and powerful JQuery plugin that lets you validate, reset, and fill your HTML forms.
+  Formtools is a lightweight (4.84 KB!) and powerful JQuery plugin that lets you validate, reset, and fill your HTML forms.
   It is designed to be extensible and customizable to fit your needs.
   You can easily define your input validators in the HTML markup and validate the form via Javascript with just one line of code!
 
@@ -22,7 +22,7 @@ How to include it
   
   .. code-block:: html
 
-      <script src="https://cdn.rawgit.com/nyxgear/formtools/master/dist/1.0/formtools.min.js"></script>
+      <script src="https://cdn.rawgit.com/nyxgear/formtools/master/dist/1.1.0/formtools.min.js"></script>
 
   or, if you want to get formtools part of your project, you can include its minified file directly.
 
