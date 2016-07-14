@@ -238,10 +238,12 @@
     /** Default settings **/
 	var _settings = {
 		'hooks' : {
+			/* eslint-disable no-unused-vars */
 			'preValidate' : function (form) {},
 			'postValidate' : function (form) {},
 			'preReset' : function (form, data) {},
 			'postReset' : function (form, data) {}
+			/* eslint-enable no-unised-vars */
 		},
 		'verbose' : true,
 		'v' : {
