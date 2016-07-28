@@ -143,16 +143,12 @@
 			}
 	
 			if (s.verbose) {
-				var errorMsgId = f.attr('id');
-	
-				if (errorMsgId === undefined) {
-					errorMsgId = new Date().getTime();
-				}
-	
+				var errorMsgId = (f.attr('id') || (new Date().getTime()));
+
 				errorMsgId = '_ft-err-' + errorMsgId;
 	
 				f.attr('aria-describedby', errorMsgId);
-				$.fn.formtools.formatErrorMsg(f,errorMsgId, s.error.msg);
+				$.fn.formtools.formatErrorMsg(f, errorMsgId, s.error.msg);
 	
 			}
 	
