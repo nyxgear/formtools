@@ -1,0 +1,8 @@
+version: '2'
+services:
+  tools:
+    build: .
+    volumes:
+     - ./src:/workspace/src
+     - ./dist:/workspace/dist
+     - ./docs:/workspace/docs

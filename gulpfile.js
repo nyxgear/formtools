@@ -31,7 +31,7 @@ gulp.task(	'default',
 
 					// release
 					gutil.colors.yellow('release') + '\n\t\t' +
-					'Rebuild and concatenate all js files.\n\t\tIt minify and uglify js for deploy.\n\t\t'
+					'Rebuild and concatenate all js files.\n\t\tMinifies and uglifies JS for deploy.\n\t\t'
 
 				);
 			}
