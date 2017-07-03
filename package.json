@@ -1,5 +1,5 @@
 {
-  "name": "fromtools",
+  "name": "formtools",
   "version": "1.1.0",
   "description": "Formtools a lightweight and powerful JQuery plugin that lets you validate, reset, and fill your HTML forms.",
   "main": "gulpfile.js",
