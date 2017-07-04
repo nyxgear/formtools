@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FormTools Examples and Tests</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="page-header">FormTools Examples and Tests</h1>
+
+			<h2 class="page-header">Full required form</h2>
+			
+			<form id="testForm1" class="form-horizontal" data-ft-required>
+				<fieldset>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">
+							Username *
+						</label>
+						<div class="col-lg-9">
+							<input class="form-control" type="text" autocomplete="off" name="username">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">
+							Password *
+						</label>
+						<div class="col-lg-9">
+							<input class="form-control" type="password" autocomplete="off" name="password">
+						</div>
+					</div>
+					<div class="text-right">
+						<button class="btn btn-primary btnValidate" type="button" autocomplete="off">Send</button> 
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>

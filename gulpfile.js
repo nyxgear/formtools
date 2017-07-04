@@ -48,11 +48,12 @@ gulp.task('release', function () {
 
 
 gulp.task('watch', function () {
-	gulp.watch('src/*.js', ['build-js']);
+	gulp.watch('src/*.(js|html)', ['build-js']);
 });
 
+
 gulp.task('build-js', function () {
-	return gulp.src('src/*.js')
+	var res = gulp.src('src/*.js')
 		.pipe(concat('formtools.js'))
 		.pipe(plumber({
 			errorHandler: function (error) {
@@ -64,6 +65,10 @@ gulp.task('build-js', function () {
 		.pipe(eslint.format())
 		.pipe(eslint.failAfterError())
 		.pipe(gulp.dest('dist/latest/'));
+	
+	return gulp.src('src/*.html')
+		.pipe(gulp.dest('dist/latest/'));
+	
 });
 
 gulp.task('dist-min', function () {

@@ -1,6 +1,6 @@
-##########
+###########
  Changelog
-##########
+###########
 
 This file describe new formtools features and incompatibilites 
 
