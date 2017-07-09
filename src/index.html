@@ -4,8 +4,16 @@
 		<title>FormTools Examples and Tests</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	</head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+				integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+				crossorigin="anonymous">
+
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"></script>
+		
+  	</head>
 	<body>
 		<div class="container">
 			<h1 class="page-header">FormTools Examples and Tests</h1>
@@ -36,5 +44,45 @@
 				</fieldset>
 			</form>
 		</div>
+
+		<div class="modal fade" id="modalValidationOK" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Validation Result</h4>
+			</div>
+			<div class="modal-body">
+				<p class="text-success">
+					<span class="glyphicon glyphicon-ok"></span> Validation OK
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+				integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+				crossorigin="anonymous"></script>
+		
+		<script src="formtools.js"></script>
+		
+		<script>
+			var modalValidationOK = $('#modalValidationOK'),
+				modalValidationKO = $('#modalValidationKO');
+
+			// Full required form
+			var testForm1 = $('#testForm1');
+			testForm1.find('.btnValidate').on('click', function() {
+				if (testForm1.formtools('validate')) {
+					modalValidationOK.modal('show');
+				}
+
+				return false;
+			});
+		</script>
 	</body>
 </html>

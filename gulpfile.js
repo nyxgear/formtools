@@ -49,7 +49,7 @@ gulp.task('release', function () {
 
 
 gulp.task('watch', function () {
-	gulp.watch('src/*.(js|html)', ['build-js']);
+	gulp.watch(['src/*.js', 'src/*.html'], ['build-js']);
 });
 
 
