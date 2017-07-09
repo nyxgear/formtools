@@ -1,6 +1,10 @@
 FROM node:alpine
 MAINTAINER Paolo Casciello <paolo.casciello@scalebox.it>
 
+# dev webserver port
+EXPOSE 8000
+EXPOSE 35729
+
 WORKDIR /workspace
 
 COPY ./package.json /workspace/

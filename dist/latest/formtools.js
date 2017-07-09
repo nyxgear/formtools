@@ -231,7 +231,7 @@
 	};
 
 
-    /** Default settings **/
+	/** Default settings **/
 	var _settings = {
 		'hooks' : {
 			/* eslint-disable no-unused-vars */

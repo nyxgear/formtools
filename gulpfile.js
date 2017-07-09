@@ -8,7 +8,8 @@ var gulp  = require('gulp'),
 	sequence = require('gulp-sequence'),
 	eslint = require('gulp-eslint'),
 	size = require('gulp-size'),
-	rename = require('gulp-rename');
+	rename = require('gulp-rename'),
+	server = require('gulp-server-livereload');
 
 
 //gulp.task('default', function() {
@@ -39,7 +40,7 @@ gulp.task(	'default',
 
 
 gulp.task('monitor', function () {
-	return sequence(['build-js', ], 'watch')();
+	return sequence(['build-js', ], ['watch', 'dev-server'])();
 });
 
 gulp.task('release', function () {
@@ -82,5 +83,15 @@ gulp.task('dist-min', function () {
 		.pipe(gulp.dest('dist/latest'));
 });
 
+gulp.task('dev-server', function() {
+  gulp.src('dist/latest')
+    .pipe(server({
+          host: '0.0.0.0',
+      livereload: {
+                enable: true,
+                clientConsole: false
+          }
+    }));
+});
 
 
