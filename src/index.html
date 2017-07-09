@@ -43,6 +43,32 @@
 					</div>
 				</fieldset>
 			</form>
+
+			<!-- Two column form to highlight correct elements -->
+			<h2 class="page-header">Two columns form</h2>
+			
+			<form id="testForm10" class="form-horizontal" data-ft-required>
+				<fieldset>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">
+							Username *
+						</label>
+						<div class="col-lg-3">
+							<input class="form-control" type="text" autocomplete="off" name="username">
+						</div>
+						<label class="col-lg-3 control-label">
+							Password *
+						</label>
+						<div class="col-lg-3">
+							<input class="form-control" type="password" autocomplete="off" name="password">
+						</div>
+					</div>
+					<div class="text-right">
+						<button class="btn btn-primary btnValidate" type="button" autocomplete="off">Send</button> 
+					</div>
+				</fieldset>
+			</form>
+
 		</div>
 
 		<div class="modal fade" id="modalValidationOK" tabindex="-1" role="dialog">
@@ -78,6 +104,16 @@
 			var testForm1 = $('#testForm1');
 			testForm1.find('.btnValidate').on('click', function() {
 				if (testForm1.formtools('validate')) {
+					modalValidationOK.modal('show');
+				}
+
+				return false;
+			});
+			
+			// Two columns form
+			var testForm10 = $('#testForm10');
+			testForm10.find('.btnValidate').on('click', function() {
+				if (testForm10.formtools('validate')) {
 					modalValidationOK.modal('show');
 				}
 
