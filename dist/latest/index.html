@@ -113,7 +113,15 @@
 			// Two columns form
 			var testForm10 = $('#testForm10');
 			testForm10.find('.btnValidate').on('click', function() {
-				if (testForm10.formtools('validate')) {
+				var valResult = testForm10.formtools('validate', function (field, errors) {
+					var f = $(field);
+					console.log(field, errors);
+					f.parent().addClass('has-error');
+					f.parent().append($('<span>').addClass('help-block ft-error').text(errors.dMsg));
+					return false;
+				});
+
+				if (valResult) {
 					modalValidationOK.modal('show');
 				}
 
