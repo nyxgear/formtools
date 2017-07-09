@@ -204,7 +204,7 @@
 	
 			/* reset form */
 			else if (action === 'reset') {
-				reset(data);
+				return reset(data);
 			}
 	
 			/* form settings */
@@ -217,8 +217,7 @@
 			/* unrecognized action */
 			else {
 				console.error('[form2] WARNING: invalid action');
-				console.error('[form2] given action:');
-				console.error(action);
+				console.error('[form2] given action:', action);
 			}
 		} else {
 			console.warn('[form2] WARNING: attempted execution of an action on non-form object');
