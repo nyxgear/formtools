@@ -111,11 +111,18 @@
 			});
 			
 			// Two columns form
+			// Bootstrap need the parent to have .has-error to color .control-labels
+			// this implies you can't normally mark as error a single column.
+			// Following is a workaround
+			$.fn.formtools.settings.hooks.preValidate = function (form) {
+				form.find('.help-block.ft-error').detach();
+			}
+
 			var testForm10 = $('#testForm10');
 			testForm10.find('.btnValidate').on('click', function() {
 				var valResult = testForm10.formtools('validate', function (field, errors) {
 					var f = $(field);
-					console.log(field, errors);
+					// console.log(field, errors);
 					f.parent().addClass('has-error');
 					f.parent().append($('<span>').addClass('help-block ft-error').text(errors.dMsg));
 					return false;
