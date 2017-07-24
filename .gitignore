@@ -18,4 +18,4 @@ node_modules
 *.komodoproject
 
 # Doc builds
-docs/build
+docs/_build

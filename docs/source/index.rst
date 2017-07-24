@@ -34,15 +34,14 @@ Dependencies
   - |Moment.js_link|
   - (|Bootstrap_link|)
  
-| Since formtools is a jQuery plugin it requires |jQuery_link|.
-| The only one real dependency is this!!
+| Since formtools is a jQuery plugin it requires |jQuery_link| thus this is the only really needed dependency.
 |  
-| If you want validate dates you must also include |Moment.js_link|
+| To validate dates you must include |Moment.js_link|
 | 
-| Formtools is thought to work by default on |Bootstrap_link| based template structure.
-| **But!** If you don't use bootstrap is not a problem.
-| You can easly define your custom settings to match your own template structure.
-| The only two things you need to set up are the :ref:`custom error class <error-class>` and the :ref:`parent error class <parent-error-class>`.
+| Formtools is designed to work by default with |Bootstrap_link|.
+| **But!** If you don't use bootstrap you can still use Formtools as
+| you can easly define your custom settings to match your own markup.
+| The only configurations required are :ref:`custom error class <error-class>` and :ref:`parent error class <parent-error-class>`.
   
   
   

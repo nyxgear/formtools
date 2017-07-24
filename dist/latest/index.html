@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FormTools Examples and Tests</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+				integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+				crossorigin="anonymous">
+
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"></script>
+		
+  	</head>
+	<body>
+		<div class="container">
+			<h1 class="page-header">FormTools Examples and Tests</h1>
+
+			<h2 class="page-header">Full required form</h2>
+			
+			<form id="testForm1" class="form-horizontal" data-ft-required>
+				<fieldset>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">
+							Username *
+						</label>
+						<div class="col-lg-9">
+							<input class="form-control" type="text" autocomplete="off" name="username">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">
+							Password *
+						</label>
+						<div class="col-lg-9">
+							<input class="form-control" type="password" autocomplete="off" name="password">
+						</div>
+					</div>
+					<div class="text-right">
+						<button class="btn btn-primary btnValidate" type="button" autocomplete="off">Send</button> 
+					</div>
+				</fieldset>
+			</form>
+
+			<!-- Two column form to highlight correct elements -->
+			<h2 class="page-header">Two columns form</h2>
+			
+			<form id="testForm10" class="form-horizontal" data-ft-required>
+				<fieldset>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">
+							Username *
+						</label>
+						<div class="col-lg-3">
+							<input class="form-control" type="text" autocomplete="off" name="username">
+						</div>
+						<label class="col-lg-3 control-label">
+							Password *
+						</label>
+						<div class="col-lg-3">
+							<input class="form-control" type="password" autocomplete="off" name="password">
+						</div>
+					</div>
+					<div class="text-right">
+						<button class="btn btn-primary btnValidate" type="button" autocomplete="off">Send</button> 
+					</div>
+				</fieldset>
+			</form>
+
+		</div>
+
+		<div class="modal fade" id="modalValidationOK" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Validation Result</h4>
+			</div>
+			<div class="modal-body">
+				<p class="text-success">
+					<span class="glyphicon glyphicon-ok"></span> Validation OK
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+				integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+				crossorigin="anonymous"></script>
+		
+		<script src="formtools.js"></script>
+		
+		<script>
+			var modalValidationOK = $('#modalValidationOK'),
+				modalValidationKO = $('#modalValidationKO');
+
+			// Full required form
+			var testForm1 = $('#testForm1');
+			testForm1.find('.btnValidate').on('click', function() {
+				if (testForm1.formtools('validate')) {
+					modalValidationOK.modal('show');
+				}
+
+				return false;
+			});
+			
+			// Two columns form
+			// Bootstrap need the parent to have .has-error to color .control-labels
+			// this implies you can't normally mark as error a single column.
+			// Following is a workaround
+			$.fn.formtools.settings.hooks.preValidate = function (form) {
+				form.find('.help-block.ft-error').detach();
+			}
+
+			var testForm10 = $('#testForm10');
+			testForm10.find('.btnValidate').on('click', function() {
+				var valResult = testForm10.formtools('validate', function (field, errors) {
+					var f = $(field);
+					// console.log(field, errors);
+					f.parent().addClass('has-error');
+					f.parent().append($('<span>').addClass('help-block ft-error').text(errors.dMsg));
+					return false;
+				});
+
+				if (valResult) {
+					modalValidationOK.modal('show');
+				}
+
+				return false;
+			});
+		</script>
+	</body>
+</html>

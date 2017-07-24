@@ -45,7 +45,7 @@
 		}
 	};
 
-	var fieldValidate = function (f) {
+	var fieldValidate = function (f, fieldErrorCbk) {
 		var isValid = true;
 
 		s = $.extend(
@@ -57,7 +57,7 @@
 			formTagSettings(),
 			fieldTagSettings(f)
 		);
-	
+		
 		/** VALIDATE FIELD **/
 		// if optional and there's no content in filed, skip validation
 		if (f.val() || !s.v.ftOptional) {
@@ -135,29 +135,32 @@
 	
 		/** SHOW ERRORS **/
 		if (!isValid) {
-			f.closest(s.error.parent).addClass(s.error.class.replace('.', ''));
-	
-			// if custom error msg is defined then use it
-			if (!s.error.msg) {
-				s.error.msg = s.error.dMsg;
-			}
-	
-			if (s.verbose) {
-				var errorMsgId = (f.attr('id') || (new Date().getTime()));
+			if (!fieldErrorCbk || fieldErrorCbk(f, s.error)) {
+				// Normal error handling behavior
 
-				errorMsgId = '_ft-err-' + errorMsgId;
-	
-				f.attr('aria-describedby', errorMsgId);
-				$.fn.formtools.formatErrorMsg(f, errorMsgId, s.error.msg);
-	
-			}
-	
-			if (s.error.fields) {
-				$(s.error.fields).append(s.error.msg + '<br>');
+				f.closest(s.error.parent).addClass(s.error.class.replace('.', ''));
+				
+				// if custom error msg is defined then use it
+				if (!s.error.msg) {
+					s.error.msg = s.error.dMsg;
+				}
+				
+				if (s.verbose) {
+					var errorMsgId = (f.attr('id') || (new Date().getTime()));
+
+					errorMsgId = '_ft-err-' + errorMsgId;
+					
+					f.attr('aria-describedby', errorMsgId);
+					$.fn.formtools.formatErrorMsg(f, errorMsgId, s.error.msg);
+					
+				}
+				
+				if (s.error.fields) {
+					$(s.error.fields).append(s.error.msg + '<br>');
+				}
 			}
 		}
-	
-	
+		
 		return isValid;
 	};
 	
@@ -170,7 +173,7 @@
 		s.hooks.postReset(form, data);
 	};
 	
-	var formValidate = function () {
+	var formValidate = function (fieldErrorCbk) {
 		var isValid = true;
 	
 		s.hooks.preValidate(form);
@@ -178,7 +181,7 @@
 		clearErrorsAndFill();
 		form.find('input, select, textarea').each(function () {
 			var $this = $(this);
-			if (!$this.prop('disabled') && !fieldValidate($this)) {
+			if (!$this.prop('disabled') && !fieldValidate($this, fieldErrorCbk)) {
 				isValid = false;
 			}
 		});
@@ -199,12 +202,17 @@
 	
 			/* validate form */
 			if (action === 'validate') {
-				return formValidate();
+				if (typeof data === 'function') {
+					// data is the fieldErrorValidate callback
+					return formValidate(data);
+				} else {
+					return formValidate();
+				}
 			}
 	
 			/* reset form */
 			else if (action === 'reset') {
-				reset(data);
+				return reset(data);
 			}
 	
 			/* form settings */
@@ -217,8 +225,7 @@
 			/* unrecognized action */
 			else {
 				console.error('[form2] WARNING: invalid action');
-				console.error('[form2] given action:');
-				console.error(action);
+				console.error('[form2] given action:', action);
 			}
 		} else {
 			console.warn('[form2] WARNING: attempted execution of an action on non-form object');
@@ -231,7 +238,7 @@
 	};
 
 
-    /** Default settings **/
+	/** Default settings **/
 	var _settings = {
 		'hooks' : {
 			/* eslint-disable no-unused-vars */

@@ -13,9 +13,25 @@ Documentation
 | http://formtools.readthedocs.org/
 |
 
+===========
+Development
+===========
+
+The development is based on Docker / Compose.
+You need only Docker Compose fully installed and working on your system.
+
+To start development environment:
+
+    docker-compose up
+
+Access demo/example page: http://localhost:9000
+
+Access docs: http://localhost:9999
+
+
 
 ============
 Contributors
 ============    
-- 	`xcash <https://github.com/xcash>`_
-- 	`kadmillos <https://github.com/Kadmillos>`_
+ - `xcash <https://github.com/xcash>`_
+ - `Kadmillos <https://github.com/Kadmillos>`_
