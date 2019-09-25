@@ -1,19 +1,24 @@
 FROM node:alpine
-MAINTAINER Paolo Casciello <paolo.casciello@scalebox.it>
+MAINTAINER nyxgear <dev@nyxgear.com>
 
-# dev webserver port
-EXPOSE 8000
-EXPOSE 35729
+ENV NODE_ENV development
 
 WORKDIR /workspace
 
+# copy required files
 COPY ./package.json /workspace/
 COPY ./gulpfile.js /workspace/
 COPY ./.eslintrc.json /workspace/
 
-ENV NODE_ENV development
+RUN npm install yarn --global
+RUN yarn global add gulp
 
-RUN npm install gulp -g
-RUN npm install
+# install dependecies
+RUN yarn install
 
+# dev webserver port
+EXPOSE 3000
+EXPOSE 3001
+
+# watch
 CMD ["gulp", "monitor"]

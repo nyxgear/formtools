@@ -1,15 +1,17 @@
 version: '2'
 services:
   tools:
+    tty: true
     build: .
     ports:
-     - 9000:8000
-     - 35729:35729
+     - 3000:3000
+     - 3001:3001
     volumes:
      - ./src:/workspace/src
      - ./dist:/workspace/dist
      - ./docs:/workspace/docs
   docs:
+    tty: true
     build:
       context: .
       dockerfile: Dockerfile.docs
