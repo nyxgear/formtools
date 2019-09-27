@@ -9,53 +9,26 @@ const gulp = require('gulp'),
     rename = require('gulp-rename'),
     browserSync = require('browser-sync');
 
-const reload = browserSync.reload;
+const default_task = function (done) {
+    log('\n' +
+        colors.green('GULP TASKS') + '\n\t' +
 
-gulp.task('default',
-    function () {
-        log('\n' +
-            colors.green('GULP TASKS') + '\n\t' +
+        // default | help
+        colors.yellow('default | help') + '\n\t\t' +
+        'Shows the available tasks\n\n\t' +
 
-            // default | help
-            colors.yellow('default | help') + '\n\t\t' +
-            'Shows the available tasks\n\n\t' +
+        // monitor
+        colors.yellow('monitor') + '\n\t\t' +
+        'Real time check for changes in js files.\n\t\tIt handles errors and rebuilds the minified and compiled files.\n\n\t' +
 
-            // monitor
-            colors.yellow('monitor') + '\n\t\t' +
-            'Real time check for changes in js files.\n\t\tIt handles errors and rebuilds the minified and compiled files.\n\n\t' +
+        // release
+        colors.yellow('release') + '\n\t\t' +
+        'Rebuild and concatenate all js files.\n\t\tMinifies and uglifies JS for deploy.\n\t\t'
+    );
+    done();
+};
 
-            // release
-            colors.yellow('release') + '\n\t\t' +
-            'Rebuild and concatenate all js files.\n\t\tMinifies and uglifies JS for deploy.\n\t\t'
-        );
-    }
-);
-
-gulp.task('monitor', function () {
-    gulp.series('build-js', function (done) {
-        done();
-        gulp.parallel('watch', 'dev-server', function (done) {
-            done();
-        })();
-    })();
-});
-
-gulp.task('release', function () {
-    gulp.series('build-js', 'dist-min', function (done) {
-        done();
-    })();
-});
-
-
-gulp.task('watch', function () {
-    gulp.watch('src/**/*', gulp.series('build-js', function (done) {
-        reload();
-        done();
-    }));
-});
-
-
-gulp.task('build-js', function () {
+const build_js = function () {
     // copy index.html
     gulp.src('src/index.html')
         .pipe(gulp.dest('dist/'));
@@ -71,9 +44,9 @@ gulp.task('build-js', function () {
         .pipe(eslint.format())
         .pipe(eslint.failAfterError())
         .pipe(gulp.dest('dist/'));
-});
+};
 
-gulp.task('dist-min', function () {
+const dist_min = function () {
     return gulp.src('dist/formtools.js')
         .pipe(rename({
             extname: '.min.js'
@@ -82,15 +55,25 @@ gulp.task('dist-min', function () {
         .pipe(uglify({mangle: true}))
         .pipe(size({title: 'POST-MINIFY'}))
         .pipe(gulp.dest('dist/'));
-});
+};
 
-gulp.task('dev-server', function () {
+const watch = function () {
+    gulp.watch('src/**/*', gulp.series(build_js, function (done) {
+        browserSync.reload();
+        done();
+    }));
+};
+
+const dev_server = function () {
     browserSync({
         server: {
             baseDir: 'dist'
         },
         open: false,
     });
-    gulp.watch(['*.html', '*.js'], {cwd: 'dist'}, reload);
-});
+};
 
+exports.default = default_task;
+exports.help = default_task;
+exports.release = gulp.series(build_js, dist_min);
+exports.monitor = gulp.series(build_js, gulp.parallel(watch, dev_server));
