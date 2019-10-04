@@ -19,10 +19,10 @@ What is Formtools?
 How to include it
 =================
   Just put the following line before your javascript
-  
+
   .. code-block:: html
 
-      <script src="https://cdn.rawgit.com/nyxgear/formtools/master/dist/1.1.0/formtools.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/nyxgear/formtools@v1.1.0/dist/formtools.min.js"></script>
 
   or, if you want to get formtools part of your project, you can include its minified file directly.
 
